@@ -1,7 +1,7 @@
 package tn.esprit.gestionzoo.main;
 
-import tn.esprit.gestionzoo.entities.Animal;
-import tn.esprit.gestionzoo.entities.zoo;
+import tn.esprit.gestionzoo.entities.*;
+
 public class Main {
     public static void main(String[] args) {
         Animal lion = new Animal("Felyne", "Felix_2", 5, true);
@@ -29,5 +29,30 @@ public class Main {
         System.out.println("Suppression serpent (2e fois) : " + myzoo.removeAnimal(serpent));
         myzoo.displayAnimals();
         System.out.println("Plus grand zoo : " + zoo.comparerZoo(myzoo, zoo2));
+        // ===== Instruction 21 : constructeurs par défaut =====
+        Aquatic a1 = new Aquatic();
+        Terrestrial t1 = new Terrestrial();
+        Dolphin d1 = new Dolphin();
+        Penguin p1 = new Penguin();
+        System.out.println("Instanciation avec constructeurs par défaut OK");
+
+        // ===== Instruction 22 : constructeurs paramétrés =====
+        Aquatic a2 = new Aquatic("Fish", "Nemo", 2, false, "océan");
+        Terrestrial t2 = new Terrestrial("Feline", "Simba", 5, true, 4);
+        Dolphin d2 = new Dolphin("Delphinidae", "Flipper", 8, true, "mer", 45.5f);
+        Penguin p2 = new Penguin("Spheniscidae", "Happy Feet", 3, true, "Antarctique", 120.0f);
+
+        // ===== Instruction 23 : affichage avec toString =====
+        System.out.println("\n--- toString ---");
+        System.out.println(a2);
+        System.out.println(t2);
+        System.out.println(d2);
+        System.out.println(p2);
+
+        // ===== Instruction 24 : appel de swim() =====
+        System.out.println("\n--- swim() ---");
+        a2.swim();          // This aquatic animal is swimming.
+        d2.swim();          // This dolphin is swimming.
+        p2.swim();          // This aquatic animal is swimming. (hérité de Aquatic)
     }
 }
